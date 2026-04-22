@@ -1,289 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Devendra & Lakshmi | Royal Hindu Wedding Invitation</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --primary-red: #6B0F1A;
-      --secondary-red: #B8336A;
-      --gold-foil: linear-gradient(135deg, #D4AF37, #F1E6C3, #D4AF37);
-      --soft-gold: #D4AF37;
-      --off-white: #FFF9F0;
-      --dark-bg: #1a0505;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devendra & Lakshmi Wedding Invitation</title>
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
-    body {
-      background-color: var(--dark-bg);
-      background-image: url("https://www.transparenttextures.com/patterns/dark-leather.png");
-      font-family: 'Montserrat', sans-serif;
-      color: var(--off-white);
-      overflow-x: hidden;
-    }
+<style>
+:root {
+  --bg: #f7f4ef;
+  --green: #2f4f3f;
+  --light-green: #6c8a7a;
+}
 
-    .bg-overlay {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
-      z-index: -1;
-    }
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: var(--bg);
+  color: var(--green);
+}
 
-    .invitation-wrapper {
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 20px;
-      perspective: 1000px;
-    }
+/* Layout */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+  position: relative;
+}
 
-    .wedding-card {
-      background: var(--primary-red);
-      background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
-      border: 3px double var(--soft-gold);
-      border-radius: 20px;
-      position: relative;
-      padding: 4rem 2rem;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-      text-align: center;
-      overflow: hidden;
-    }
+/* Soft floral effect */
+.container::before {
+  content: "";
+  position: absolute;
+  left: -80px;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background: radial-gradient(circle at top, #dfe8e2, transparent 70%);
+  opacity: 0.6;
+}
 
-    /* Ornamental Corners & Borders */
-    .wedding-card::before, .wedding-card::after {
-      content: "❃";
-      position: absolute;
-      font-size: 3rem;
-      color: var(--soft-gold);
-      opacity: 0.6;
-    }
-    .wedding-card::before { top: 10px; left: 10px; }
-    .wedding-card::after { bottom: 10px; right: 10px; }
+/* Title */
+.title {
+  text-align: right;
+  font-family: 'Playfair Display', serif;
+}
 
-    /* Floating Mandala Effect */
-    .mandala-bg {
-      position: absolute;
-      top: -50px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 300px;
-      opacity: 0.1;
-      animation: rotate 60s linear infinite;
-      pointer-events: none;
-    }
+.title h1 {
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  margin: 0;
+}
 
-    @keyframes rotate { from { transform: translateX(-50%) rotate(0deg); } to { transform: translateX(-50%) rotate(360deg); } }
+.subtitle {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+}
 
-    /* Divine Header */
-    .auspicious-symbols {
-      font-family: 'Cinzel', serif;
-      font-size: 1.8rem;
-      color: var(--soft-gold);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      margin-bottom: 2rem;
-    }
+/* Names */
+.names {
+  margin: 40px 0;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
 
-    .ganesh-icon {
-      width: 120px;
-      filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
-      transition: 0.5s;
-    }
-    .ganesh-icon:hover { transform: scale(1.1); filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8)); }
+.names span {
+  font-size: 2.5rem;
+}
 
-    /* Typography Updates */
-    .main-title {
-      font-family: 'Cinzel', serif;
-      letter-spacing: 4px;
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-      color: var(--soft-gold);
-      text-shadow: 0 2px 2px rgba(0,0,0,0.3);
-    }
+/* Description */
+.desc {
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: auto;
+}
 
-    .couple-names {
-      font-family: 'Great Vibes', cursive;
-      font-size: 5rem;
-      background: var(--gold-foil);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin: 1rem 0;
-      filter: drop-shadow(0 2px 2px rgba(0,0,0,0.3));
-      animation: shine 3s infinite alternate;
-    }
+/* Details */
+.details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
 
-    @keyframes shine {
-      from { text-shadow: 0 0 2px rgba(212, 175, 55, 0.5); }
-      to { text-shadow: 0 0 10px rgba(212, 175, 55, 0.9); }
-    }
+.details div {
+  width: 45%;
+  font-size: 0.95rem;
+}
 
-    .details-box {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      backdrop-filter: blur(10px);
-      border-radius: 10px;
-      padding: 2rem;
-      margin: 2rem auto;
-      max-width: 600px;
-      transition: transform 0.3s;
-    }
-    .details-box:hover { transform: translateY(-5px); }
+/* Countdown Timer */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+  font-family: 'Playfair Display', serif;
+}
 
-    .event-info {
-      margin: 1.5rem 0;
-      font-size: 1.1rem;
-    }
+.countdown div {
+  text-align: center;
+  min-width: 50px;
+}
 
-    .event-info i {
-      color: var(--soft-gold);
-      margin-bottom: 10px;
-      font-size: 1.5rem;
-      display: block;
-    }
+.countdown span {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--green);
+}
 
-    /* Countdown Styling */
-    .timer {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 2rem;
-    }
+.countdown small {
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: var(--light-green);
+}
 
-    .time-unit {
-      background: linear-gradient(to bottom, #5a0606, #3a0303);
-      border: 1px solid var(--soft-gold);
-      padding: 10px;
-      min-width: 70px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    }
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: var(--light-green);
+}
 
-    .time-num {
-      display: block;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--soft-gold);
-    }
+/* Responsive */
+@media (max-width: 768px) {
+  .details {
+    flex-direction: column;
+    gap: 20px;
+  }
 
-    .time-label {
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+  .details div {
+    width: 100%;
+    text-align: center;
+  }
 
-    /* Buttons */
-    .btn-group {
-      margin-top: 3rem;
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-gold {
-      padding: 12px 35px;
-      background: var(--gold-foil);
-      color: #300;
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      transition: 0.3s;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-
-    .btn-gold:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .couple-names { font-size: 3.5rem; }
-      .wedding-card { padding: 3rem 1rem; }
-      .auspicious-symbols { gap: 15px; font-size: 1.2rem; }
-      .ganesh-icon { width: 80px; }
-    }
-  </style>
+  .title {
+    text-align: center;
+  }
+}
+</style>
 </head>
+
 <body>
 
-<div class="bg-overlay"></div>
+<div class="container">
 
-<div class="invitation-wrapper">
-  <div class="wedding-card">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Mandala_71.svg/1200px-Mandala_71.svg.png" class="mandala-bg" alt="">
-
-    <div class="auspicious-symbols">
-      <span>ॐ</span>
-      <img src="https://cdn-icons-png.flaticon.com/512/2762/2762668.png" class="ganesh-icon" alt="Lord Ganesha">
-      <span>श्री</span>
-    </div>
-
-    <p class="main-title">|| SHUBH VIVAAH ||</p>
-
-    <div class="couple-names">Devendra & Lakshmi</div>
-
-    <p style="letter-spacing: 2px; opacity: 0.9;">TOGETHER WITH THEIR FAMILIES</p>
-    <p style="margin-top: 10px; font-style: italic;">Request the honor of your presence at their wedding</p>
-
-    <div class="details-box">
-      <div class="event-info">
-        <i class="fa-regular fa-calendar-check"></i>
-        <strong>THURSDAY, MAY 21, 2026</strong><br>
-        Baraat: 4:00 PM | Hast-Milap: 7:15 PM
-      </div>
-
-      <div class="event-info">
-        <i class="fa-solid fa-map-location-dot"></i>
-        <strong>PAGARWAR MARRIAGE LAWN</strong><br>
-        <span style="font-size: 0.9rem; opacity: 0.8;">Katangikala, Gondia, Maharashtra - 441601</span>
-      </div>
-    </div>
-
-    <div class="timer">
-      <div class="time-unit"><span class="time-num" id="days">00</span><span class="time-label">Days</span></div>
-      <div class="time-unit"><span class="time-num" id="hours">00</span><span class="time-label">Hrs</span></div>
-      <div class="time-unit"><span class="time-num" id="mins">00</span><span class="time-label">Min</span></div>
-      <div class="time-unit"><span class="time-num" id="secs">00</span><span class="time-label">Sec</span></div>
-    </div>
-
-    <div class="btn-group">
-      <button class="btn-gold" onclick="window.location.href='https://maps.google.com'">View on Map</button>
-      <button class="btn-gold" style="background: transparent; border: 1px solid var(--soft-gold); color: var(--soft-gold);">RSVP Online</button>
-    </div>
-
-    <p style="margin-top: 3rem; font-size: 0.8rem; letter-spacing: 1px; color: var(--soft-gold);">
-      <i class="fa-solid fa-heart"></i> WITH BEST COMPLIMENTS FROM THE FAMILY <i class="fa-solid fa-heart"></i>
-    </p>
+  <div class="title">
+    <h1>WEDDING<br>INVITATION</h1>
+    <div class="subtitle">YOU'RE INVITED TO CELEBRATE OUR SPECIAL DAY!</div>
   </div>
+
+  <div class="names">
+    DEVENDRA <span>&</span> LAKSHMI
+  </div>
+
+  <div class="desc">
+    With love and joy in our hearts, we invite you to share in our wedding celebration
+    as we exchange vows and begin our new journey together.
+  </div>
+
+  <div class="details">
+    <div>
+      <strong>21 May 2026</strong><br>
+      7:15 PM
+    </div>
+
+    <div>
+      Pagarwar Marriage Lawn<br>
+      Katangikala, Gondia, Maharashtra - 441601
+    </div>
+  </div>
+
+  <!-- Countdown -->
+  <div class="countdown">
+    <div><span id="days">00</span><small>Days</small></div>
+    <div><span id="hours">00</span><small>Hrs</small></div>
+    <div><span id="mins">00</span><small>Min</small></div>
+    <div><span id="secs">00</span><small>Sec</small></div>
+  </div>
+
+  <div class="footer">
+    Your presence would mean the world to us!
+  </div>
+
 </div>
 
 <script>
-  const weddingDate = new Date("May 21, 2026 19:15:00").getTime();
+const weddingDate = new Date("May 21, 2026 19:15:00").getTime();
 
-  setInterval(function() {
-    const now = new Date().getTime();
-    const diff = weddingDate - now;
+setInterval(function () {
+  const now = new Date().getTime();
+  const diff = weddingDate - now;
 
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const s = Math.floor((diff % (1000 * 60)) / 1000);
+  if (diff <= 0) return;
 
-    document.getElementById("days").innerHTML = d;
-    document.getElementById("hours").innerHTML = h;
-    document.getElementById("mins").innerHTML = m;
-    document.getElementById("secs").innerHTML = s;
-  }, 1000);
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById("days").innerHTML = d;
+  document.getElementById("hours").innerHTML = h;
+  document.getElementById("mins").innerHTML = m;
+  document.getElementById("secs").innerHTML = s;
+}, 1000);
 </script>
 
 </body>
